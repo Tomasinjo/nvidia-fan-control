@@ -376,7 +376,6 @@ func processDevices(config Config, count int, fanCounts []int, prevFanSpeeds [][
 						log.Printf("ERROR: Unable to return GPU %d Fan %d to automatic control: %v", i, fanIdx, nvml.ErrorString(ret))
 						continue
 					}
-					log.Printf("INFO: Target speed is 0%%. Handed GPU %d Fan %d back to driver (Auto Control). Temp=%d°C", i, fanIdx, tempInt)
 				} else {
 					// Set to manual for any non-zero value
 					ret = nvml.DeviceSetFanControlPolicy(device, fanIdx, nvml.FAN_POLICY_MANUAL)
